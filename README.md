@@ -46,7 +46,7 @@ Following the physical deployment of the USB 3.0 display adapter while the works
 
 ## 🛠️ Implemented Engineering Solution
 Replacing the enterprise motherboard was deemed cost-prohibitive for the scope of this deployment. Instead, an architectural bypass was engineered:
-1. **Bus Conversion:** Deployed an external USB 3.0-to-DisplayPort adapter to convert a standard data bus into a completely discrete video output pipeline, bypassing the corrupted native silicon entirely.
+1. **Bus Conversion:** Deployed an external USB 3.0-to-HDMI adapter to convert a standard data bus into a completely discrete video output pipeline, bypassing the corrupted native silicon entirely.
 2. **Topology Stabilization:** Resolved a secondary "phantom display" canvas extension anomaly created by the faulty legacy ports by explicitly disabling the degraded hardware polling profile within the Windows Device Manager layer. This permanently terminated the system's reboot loop configurations.
 3. **Result:** The workstation workspace is 100% stabilized, flicker-free, and optimized for bare-metal virtualization infrastructure management.
 
