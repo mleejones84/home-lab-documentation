@@ -1,1 +1,50 @@
-# home-lab-documentation
+# Home Lab Documentation: Hardware Optimization & Native Video Mitigation
+
+## Executive Summary
+This project documents the acquisition, diagnostic triage, and optimization of a surplus enterprise workstation deployed as a bare-metal Type-1 Hypervisor home lab. During initialization, severe video signaling failures were encountered across the integrated graphics pipeline. Utilizing a systematic process of elimination with restricted diagnostic hardware, the fault was successfully localized to a physical hardware regression on the motherboard's native outputs. A cost-effective architectural workaround was deployed using a discrete USB 3.0 display bridge, stabilizing the workstation for virtualization deployment.
+
+---
+
+## 💻 Hardware Specifications
+* **Host CPU:** Intel Core i7-10700 (8 Cores, 16 Threads)
+* **Integrated Graphics:** Intel UHD Graphics 630
+* **Operating System:** Windows 11 Pro (Host environment for Hyper-V virtualization)
+
+---
+
+## 🚨 Incident Report: Cascading Display Degradation
+
+### 1. Initial Symptoms & Software Triage
+Upon initial deployment inside the Windows 11 environment, chronic screen flickering and intermittent signal drops were observed on the primary display panel. 
+* **Action taken:** Navigated the unstable interface to isolate the software layer. Downloaded and executed a clean installation of the official Intel OEM graphics driver stack for the i7-10700 chipset. 
+* **Result:** No variation in symptoms. Display configuration adjustments (refresh rates, resolution downscaling) yielded zero operational impact, indicating the fault lay outside the software/OS kernel layer.
+
+### 2. Pre-OS Environment Analysis
+To isolate the operating system and graphics driver variables entirely, the workstation was rebooted to analyze behavior at the pre-boot level.
+* **Observation:** Persistent display flickering was present directly on the native Dell UEFI/BIOS splash screen.
+* **Deduction:** Because the low-resolution, low-refresh-rate boot signal failed to stabilize, the issue was confirmed to be a physical/electrical layer failure rather than an OS-level driver conflict.
+
+### 3. Differential Port & Peripheral Diagnostics
+Operating with a strict hardware constraint of one monitor and one cable, a systematic boundary test was executed to isolate the source device from the sink peripheral:
+* **Port 1 Isolation:** Immediate electrical signaling failure observed at the BIOS level.
+* **Port 2 Isolation:** The secondary native DisplayPort initially achieved a stable handshake during boot. However, upon loading the Windows GUI, the signal experienced delayed failure and systemic degradation under operational load (indicating thermal or electrical capacitance failure under stress).
+* **Peripheral Validation:** Initiated the monitor’s internal localized hardware self-diagnostic utility. The panel successfully generated a sustained, flawless reference image completely independent of the tower.
+
+### 4. Root Cause Determination
+The independent panel test definitively ruled out the monitor's logic board. Combined with the pre-boot signaling failures across both interfaces, the root cause was localized to **physical degradation of the native integrated DisplayPort hardware pipeline on the motherboard.**
+
+---
+
+## 🛠️ Implemented Engineering Solution
+Replacing the enterprise motherboard was deemed cost-prohibitive for the scope of this deployment. Instead, an architectural bypass was engineered:
+1. **Bus Conversion:** Deployed an external USB 3.0-to-DisplayPort adapter to convert a standard data bus into a completely discrete video output pipeline, bypassing the corrupted native silicon entirely.
+2. **Topology Stabilization:** Resolved a secondary "phantom display" canvas extension anomaly created by the faulty legacy ports by explicitly disabling the degraded hardware polling profile within the Windows Device Manager layer. This permanently terminated the system's reboot loop configurations.
+3. **Result:** The workstation workspace is 100% stabilized, flicker-free, and optimized for bare-metal virtualization infrastructure management.
+
+---
+
+## 📈 Key Takeaways for Enterprise Support
+This incident directly simulates a common enterprise-level hardware conflict frequently seen in corporate docking station firmware regressions and legacy hardware lifecycle failures. The resolution demonstrated advanced skills in:
+* Non-destructive component-level isolation under resource constraints.
+* Pre-boot vs. kernel-level error differentiation.
+* Cost-effective hardware lifecycle extension via alternative bus architectures.
