@@ -6,9 +6,14 @@ This project documents the acquisition, diagnostic triage, and optimization of a
 ---
 
 ## 💻 Hardware Specifications
+* **Brand:** Dell
+* **Model:** Precision 3440
 * **Host CPU:** Intel Core i7-10700 (8 Cores, 16 Threads)
 * **Integrated Graphics:** Intel UHD Graphics 630
+* **RAM:** 16 GB
+* **SSD:** 512 GB Samsung, 2.5" SATA
 * **Operating System:** Windows 11 Pro (Host environment for Hyper-V virtualization)
+* **Monitor:** Dell P2317H
 
 ---
 
