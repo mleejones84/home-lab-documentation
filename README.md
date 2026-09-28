@@ -33,6 +33,15 @@ Operating with a strict hardware constraint of one monitor and one cable, a syst
 ### 4. Root Cause Determination
 The independent panel test definitively ruled out the monitor's logic board. Combined with the pre-boot signaling failures across both interfaces, the root cause was localized to **physical degradation of the native integrated DisplayPort hardware pipeline on the motherboard.**
 
+### 5. Post-Implementation Behavioral Anomalies & Kernel-Layer Mitigation
+Following the physical deployment of the USB 3.0 display adapter while the workstation was powered down, a critical OS canvas dislocation occurred upon the initial boot sequence:
+* **Symptom (Cold Boot Baseline):** The system initialized to a completely black lock screen environment. 
+* **Triage (Blind Authentication):** Hypothesized that the display topology had defaulted back to an untracked extended canvas layout. Executed a blind authentication sequence by focusing the unrendered credential UI via mouse click and manually passing the system PIN into the invisible field.
+* **Symptom (Post-Login):** Successful authentication routed to an empty desktop environment. The local taskbar, shortcuts, and physical mouse cursor were completely unrendered due to being pushed off-screen into an active, invisible phantom display boundary.
+* **Resolution (Blind Interposition via Hotkey):** Bypassed the lack of visual GUI feedback by utilizing the native Windows display projection hotkey shortcut (`Win + P`). Blindly issued the command array to cycle the active topology from "Extend" to "PC Screen Only," snapping all assets back into the active monitor bounds.
+* **Persistent Defect (Reboot Reset Loop):** Upon system restart, Windows intentionally re-polled the hardware stack, causing the Desktop Window Manager (DWM) to regress and re-initialize the ghost monitor environment.
+* **Permanent Kernel Mitigation:** Initialized the Windows Device Manager (`devmgmt.msc`) to terminate the hardware polling loop at the system layer. Explicitly **Disabled** the phantom monitor profile and the native **Intel UHD Graphics 630 Display Adapter**. This permanently stripped the degraded onboard silicon of its system state authority, forcing the OS to exclusively utilize the USB 3.0 adapter interface across all power cycles. System stability successfully achieved at 100%.
+
 ---
 
 ## 🛠️ Implemented Engineering Solution
