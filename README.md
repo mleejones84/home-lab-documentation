@@ -12,10 +12,10 @@
 * **Monitor:** Dell P2317H
 ---
 * **Core Skills Demonstrated:**
-* -Hardware Diagnostics
-* -Documentation
-* -Virtualization
-* -Troubleshooting under constraints
+* Hardware Diagnostics
+* Documentation
+* Virtualization
+* Troubleshooting under constraints
 ---
 
 * [Incident Report: Dell 3440 Display Mitigation](knowledge-base/hardware/HW001-dell-3440-display-fault.md)
