@@ -17,5 +17,10 @@
 * Virtualization
 * Troubleshooting under constraints
 ---
+### 📖 Knowledge Base Folders
 
-* [Incident Report: Dell 3440 Display Mitigation](knowledge-base/hardware/)
+| Support Category | Repository Directory Link | Documentation Scope |
+| :--- | :--- | :--- |
+| 👑 **Identity & Domain** | [`/knowledge-base/active-directory/`](./knowledge-base/active-directory/) | Active Directory DS, GPO tracking, Kerberos authentication |
+| 🖥️ **Physical Infrastructure** | [`/knowledge-base/hardware/`](./knowledge-base/hardware/) | Component-level triage, asset metrics, hardware bypasses |
+| 📡 **Core Networking** | [`/knowledge-base/networking/`](./knowledge-base/networking/) | VLAN configurations, DHCP scoping, virtual network adapters |
