@@ -18,4 +18,4 @@
 * Troubleshooting under constraints
 ---
 
-* [Incident Report: Dell 3440 Display Mitigation](knowledge-base/hardware/HW001-dell-3440-display-fault.md)
+* [Incident Report: Dell 3440 Display Mitigation](knowledge-base/hardware/)
