@@ -11,13 +11,13 @@
 * **Operating System:** Windows 11 Pro (Host environment for Hyper-V virtualization)
 * **Monitor:** Dell P2317H
 ---
-* **Core Skills Demonstrated:**
-* Hardware Diagnostics
-* Documentation
-* Virtualization
-* Troubleshooting under constraints
+## **Core Skills Demonstrated:**
+  * Hardware Diagnostics
+  * Documentation
+  * Virtualization
+  * Troubleshooting under constraints
 ---
-### 📖 Knowledge Base Folders
+## 📖 Knowledge Base Folders
 
 | Support Category | Repository Directory Link | Documentation Scope |
 | :--- | :--- | :--- |
