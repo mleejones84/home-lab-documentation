@@ -8,6 +8,7 @@
 | **Severity** | High (Cascading network isolation across local VM subnets) |
 | **Category** | Networking / Virtual Infrastructure |
 | **Time to Resolve** | 1 Hour |
+| **Historical Framework** | BellSouth Enterprise Triage Script (CallTech Communications) |
 
 ## Executive Summary
 🚨 **Incident Report:** Multiple newly provisioned guest operating systems suddenly lost internal network connectivity and local domain access, reverting to APIPA addresses (`169.254.x.x`). Diagnostic triage isolated a dual-layered infrastructure failure: the logical binding on the Hyper-V Internal Virtual Switch interface dropped its routing path, compounded by a DHCP IP pool exhaustion on the local routing gateway.
@@ -20,7 +21,7 @@
 ### 2. Layer 3 Routing & DNS Analysis
 - **Action taken:** Jumped onto the host machine and initialized deep packet tracing using native administrative tools.
 - **Observation:** Attempted to ping the virtual gateway interface (`ping 10.0.10.1`) from the host terminal. The request timed out. 
-- **Deduction:** Utilizing BellSouth-standard diagnostic logic, the failure point was isolated away from physical line attenuation or physical NIC hardware. The issue lay entirely within the virtualized logical layer: the Hyper-V Internal Virtual Switch interface wrapper had become un-bound or misconfigured following a host OS driver stack update.
+- **Deduction:** Utilizing BellSouth-standard diagnostic logic mastered during high-volume call triage at CallTech Communications, the failure point was isolated away from physical line attenuation or hardware. The issue lay entirely within the virtualized logical layer...
 
 ### 3. First-Call Resolution Diagnostic Execution
 - **Scope Audit:** Connected directly to the DHCP Server scope management console to audit lease parameters. Found the local pool allocation at 100% capacity (Scope Exhaustion). 
