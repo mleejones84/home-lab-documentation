@@ -10,7 +10,7 @@
 $VMName      = "WIN11-PRO-02"
 $SwitchName  = "HelpDesk-Internal"
 $VHDXPath    = "C:\Hyper-V\Virtual Machines\WIN11-PRO-02\WIN11-PRO-02.vhdx"
-$ISOPath     = "C:\ISO-Library\Windows_11_Pro_Eval.iso" # Double-check your exact filename here!
+$ISOPath     = "C:\ISO-Library\windows_11_enterprise_eval.iso"
 
 Write-Host "🚀 Forcing sequential deployment for workstation node: $VMName..." -ForegroundColor Cyan
 
