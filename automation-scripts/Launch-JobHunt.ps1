@@ -23,7 +23,7 @@ Write-Host "Initializing Pipeline Deployment..." -ForegroundColor Cyan
 # Force explicit array string separation using trailing commas
 $TargetPortals = @(
     "https://www.governmentjobs.com", "https://recruiting.paylocity.com/recruiting/jobs/All/0eebbdf5-75ee-4aaa-8a8b-a8db5f531cd5/City-of-Valdosta",
-    "https://www.lowndescounty.com/jobs.aspx", "https://careers.hprod.onehcm.usg.edu/psc/careers/CAREERS/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_SCHJOB_FL&Action=U",
+    "https://www.lowndescounty.com/jobs.aspx", "https://careers.hprod.onehcm.usg.edu/psc/careers/CAREERS/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?FOCUS=Applicant&SiteId=51000",
     "https://careers.sgmc.org/search/jobs?q=help+desk&location=31602",
     "https://pcom.wd108.myworkdayjobs.com/External"
 )
