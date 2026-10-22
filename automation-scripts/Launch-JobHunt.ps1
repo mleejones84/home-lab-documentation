@@ -35,8 +35,8 @@ $TargetPortals = @(
 	"https://www.applitrack.com/colquitt/onlineapp/",
 	"https://colquittemc.com/careers/employment-opportunities",
 	"https://recruiting.ultipro.com/COL1042CRME/JobBoard/5ac3f35f-7e01-49ff-ad53-0acc27b4cee7/?q=&o=postedDateDesc",
-	"https://pm.healthcaresource.com/cs/archbold#/search"
-	"https://recruiting.paylocity.com/recruiting/jobs/All/b4319369-1767-40b0-99f1-105dfcea4a72/City-of-Thomasville"
+	"https://pm.healthcaresource.com/cs/archbold#/search",
+	"https://recruiting.paylocity.com/recruiting/jobs/All/b4319369-1767-40b0-99f1-105dfcea4a72/City-of-Thomasville",
 	"https://thomascountyboc.org/human-resources/job-opportunities",
 	"https://amerisbank.wd108.myworkdayjobs.com/Ameris_Bank_Careers",
 	"https://secure8.entertimeonline.com/ta/MNH248.careers?careersSearch&lang=en-US",
@@ -51,7 +51,7 @@ foreach ($URL in $TargetPortals) {
     # Trim any hidden spaces and enforce string conversion
     $CleanURL = $URL.Trim()
     Start-Process $CleanURL
-    Start-Sleep -Milliseconds 300
+    Start-Sleep -Milliseconds 400
 }
 
 Write-Host "Deployment complete. 15-Minute Hunting Window Active!" -ForegroundColor Green
