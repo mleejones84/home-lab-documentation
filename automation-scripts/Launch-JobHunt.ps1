@@ -26,7 +26,6 @@ Write-Host "Initializing Pipeline Deployment..." -ForegroundColor Cyan
 # ==============================================================================
 
 $TargetPortals = @(
-
     # 🏥 --- REGIONAL HEALTHCARE ANCHORS ---
     "https://careers.sgmc.org/", # South Georgia Medical Center
     "https://css-tiftregional-prd.inforcloudsuite.com/hcm/Jobs/list/JobPosting.SearchForJobsResults?csk.showusingxi=true&csk.JobBoard=EXTERNAL&csk.HROrganization=1", # Southwell Health/Tift Regional Medical Center
@@ -42,8 +41,7 @@ $TargetPortals = @(
     "https://www.thomasu.edu/about/employment/", # Thomas University
 	"https://careers.hprod.onehcm.usg.edu/psc/careers/CAREERS/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?FOCUS=Applicant&SiteId=88000&", # South Georgia State College
     "https://www.nfc.edu/about/employment-opportunities/employment-openings", # North Florida College
-	"https://www.schooljobs.com/careers/fgcedu", # Florida Gateway College
-
+	"https://www.schooljobs.com/careers/fgcedu" # Florida Gateway College
 )
 # ==============================================================================
 Write-Host "Launching background browser engine..." -ForegroundColor Yellow
